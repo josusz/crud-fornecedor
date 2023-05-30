@@ -1,0 +1,11 @@
+{
+    "suppliers": [
+        {
+            "id": 1,
+            "name": "RawSupply",
+            "active": "",
+            "category": "Internacional",
+            "contact": "comercial@rawsupply.com"
+        }
+    ]
+}

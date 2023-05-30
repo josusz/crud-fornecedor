@@ -36,3 +36,28 @@
         </div>
     </form>
 </div>
+<h4 style="text-align: center; margin-top: 40px; margin-bottom: 16px;">Registered Suppliers</h4>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Active</th>
+      <th scope="col">Category</th>
+      <th scope="col">Contact</th>
+    </tr>
+  </thead>
+    <tbody>
+      <tr *ngFor="let supplier of suppliers" >
+        <th scope="row">{{supplier.id}}</th>
+        <td>{{supplier.name}}</td>
+        <td>{{supplier.active}}</td>
+        <td>{{supplier.category}}</td>
+        <td>{{supplier.contact}}</td>
+        <td class="d-flex justify-content-end">
+          <button class="btn btn-danger me-1" (click)="remove()">Remove</button>
+          <button class="btn btn-primary" (click)="edit()">Edit</button>
+        </td>
+      </tr>
+    </tbody>
+</table>
