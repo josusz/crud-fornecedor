@@ -1,38 +1,38 @@
 <div class="mx-auto p-2" style="max-width: 700px;">
-    <form class="row g-3">
+    <form class="row g-3" [formGroup]="formGroupSupplier">
         <div style="margin-top: 70px;">
             <h2 style="text-align: center; margin-bottom: 30px;">CRUD for Suppliers &#x21C6;</h2>
             <hr>
         </div>
         <div class="col-md-6">
             <label for="id" class="form-label">Enter the ID</label>
-            <input type="number" class="form-control" name="id" placeholder="Ex.: 1, 2, 3...">
+            <input type="number" formControlName="id" class="form-control" id="id" placeholder="Ex.: 1, 2, 3...">
         </div>
         <div class="col-md-6">
             <label for="name" class="form-label">Enter the NAME</label>
-            <input type="text" class="form-control" name="name" placeholder="Ex.: GitHub...">
+            <input type="text" formControlName="name" class="form-control" id="name" placeholder="Ex.: GitHub...">
         </div>
         <div class="col-md-6">
             <label for="active" class="form-label">Mark the SITUATION</label>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                <input class="form-check-input" type="checkbox" formControlName="active" checked>
                 <label class="form-check-label" for="flexCheckChecked">Active</label>
             </div>
         </div>
         <div class="col-md-6">
             <label for="category" class="form-label">Select the CATEGORY</label>
-            <select name="category" class="form-select">
-              <option>Regional</option>
-              <option>National</option>
-              <option>International</option>
+            <select name="category" class="form-select" formControlName="category">
+              <option value="Regional">Regional</option>
+              <option value="National">National</option>
+              <option value="International">International</option>
             </select>
         </div>
         <div class="col-12">
             <label for="contact" class="form-label">Enter the CONTACT</label>
-            <input type="email" class="form-control" name="contact" placeholder="Ex.: email@domain.com">
+            <input type="email" formControlName="contact" class="form-control" id="contact" placeholder="Ex.: email@domain.com">
         </div>
         <div class="d-grid gap-2">
-            <button type="submit" class="btn btn-success">Click here to SAVE</button>
+            <button type="submit" class="btn btn-success" (click)="save()">Click here to SAVE</button>
         </div>
     </form>
 </div>
@@ -51,12 +51,17 @@
       <tr *ngFor="let supplier of suppliers" >
         <th scope="row">{{supplier.id}}</th>
         <td>{{supplier.name}}</td>
-        <td>{{supplier.active}}</td>
+        <td>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" [checked]="supplier.active" disabled>
+            <label class="form-check-label" for="flexCheckChecked">{{supplier.active ? 'Active' : 'Inactive'}}</label>
+          </div>
+        </td>
         <td>{{supplier.category}}</td>
         <td>{{supplier.contact}}</td>
         <td class="d-flex justify-content-end">
-          <button class="btn btn-danger me-1" (click)="remove()">Remove</button>
-          <button class="btn btn-primary" (click)="edit()">Edit</button>
+          <button class="btn btn-danger me-1" (click)="remove(supplier)">Remove</button>
+          <button class="btn btn-primary" (click)="edit(supplier)">Edit</button>
         </td>
       </tr>
     </tbody>

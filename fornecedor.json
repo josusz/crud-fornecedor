@@ -1,11 +1,18 @@
 {
-    "suppliers": [
-        {
-            "id": 1,
-            "name": "RawSupply",
-            "active": "",
-            "category": "Internacional",
-            "contact": "comercial@rawsupply.com"
-        }
-    ]
+  "suppliers": [
+    {
+      "id": 1,
+      "name": "RawSupply",
+      "active": "true",
+      "category": "National",
+      "contact": "comercial@rawsupply.com"
+    },
+    {
+      "id": 2,
+      "name": "DocSupply",
+      "active": false,
+      "category": "International",
+      "contact": "comercial@supplypapers.com"
+    }
+  ]
 }
